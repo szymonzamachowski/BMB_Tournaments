@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/BMB_Tournaments/static/css/main.fcff7a66.css",
-    "main.js": "/BMB_Tournaments/static/js/main.cd161eb1.js",
+    "main.js": "/BMB_Tournaments/static/js/main.e35ea067.js",
     "static/js/453.0bdcea4d.chunk.js": "/BMB_Tournaments/static/js/453.0bdcea4d.chunk.js",
     "index.html": "/BMB_Tournaments/index.html",
     "main.fcff7a66.css.map": "/BMB_Tournaments/static/css/main.fcff7a66.css.map",
-    "main.cd161eb1.js.map": "/BMB_Tournaments/static/js/main.cd161eb1.js.map",
+    "main.e35ea067.js.map": "/BMB_Tournaments/static/js/main.e35ea067.js.map",
     "453.0bdcea4d.chunk.js.map": "/BMB_Tournaments/static/js/453.0bdcea4d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fcff7a66.css",
-    "static/js/main.cd161eb1.js"
+    "static/js/main.e35ea067.js"
   ]
 }
