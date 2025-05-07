@@ -1,0 +1,38 @@
+
+.regulamin {
+  color: white;
+  animation: fadeIn 0.8s ease-in-out;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.regulamin-naglowek {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #ffbb00;
+}
+
+section ul {
+  padding-left: 1.5rem;
+}
+
+section li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}

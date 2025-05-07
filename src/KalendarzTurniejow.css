@@ -1,0 +1,98 @@
+
+.kalendarz {
+  color: white;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.kalendarz h2 {
+  margin-bottom: 2rem;
+}
+
+.siatka {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.naglowek {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.komorka {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  min-height: 80px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.komorka.nieaktywny {
+  background: rgba(255, 255, 255, 0.05);
+  color: #999;
+}
+
+.komorka.aktywny {
+  background-color: rgba(255, 77, 77, 0.9);
+  color: white;
+  cursor: pointer;
+}
+
+.komorka.aktywny:hover {
+    background-color: rgba(255, 0, 0, 0.95);
+    min-height: 120px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.turniej-zawartosc {
+    transition: transform 0.3s ease;
+    transform: scale(1);
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.turniej-zawartosc .dzien {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.turniej-zawartosc .nazwa {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.turniej-zawartosc .dodatkowe {
+  display: none;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.komorka.aktywny:hover .dodatkowe {
+  display: block;
+}
+.kalendarz-naglowek {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
