@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/BMB_Tournaments/static/css/main.fae81b98.css",
-    "main.js": "/BMB_Tournaments/static/js/main.f4043780.js",
+    "main.css": "/BMB_Tournaments/static/css/main.1a9a80fa.css",
+    "main.js": "/BMB_Tournaments/static/js/main.bd81f1fc.js",
     "static/js/453.0bdcea4d.chunk.js": "/BMB_Tournaments/static/js/453.0bdcea4d.chunk.js",
+    "static/media/fa-solid-900.ttf": "/BMB_Tournaments/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
+    "static/media/fa-brands-400.ttf": "/BMB_Tournaments/static/media/fa-brands-400.1815e00441357e01619e.ttf",
+    "static/media/fa-solid-900.woff2": "/BMB_Tournaments/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
+    "static/media/fa-brands-400.woff2": "/BMB_Tournaments/static/media/fa-brands-400.c210719e60948b211a12.woff2",
+    "static/media/fa-regular-400.ttf": "/BMB_Tournaments/static/media/fa-regular-400.914997e1bdfc990d0897.ttf",
+    "static/media/fa-regular-400.woff2": "/BMB_Tournaments/static/media/fa-regular-400.89999bdf5d835c012025.woff2",
+    "static/media/fa-v4compatibility.ttf": "/BMB_Tournaments/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
+    "static/media/fa-v4compatibility.woff2": "/BMB_Tournaments/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/BMB_Tournaments/index.html",
-    "main.fae81b98.css.map": "/BMB_Tournaments/static/css/main.fae81b98.css.map",
-    "main.f4043780.js.map": "/BMB_Tournaments/static/js/main.f4043780.js.map",
+    "main.1a9a80fa.css.map": "/BMB_Tournaments/static/css/main.1a9a80fa.css.map",
+    "main.bd81f1fc.js.map": "/BMB_Tournaments/static/js/main.bd81f1fc.js.map",
     "453.0bdcea4d.chunk.js.map": "/BMB_Tournaments/static/js/453.0bdcea4d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fae81b98.css",
-    "static/js/main.f4043780.js"
+    "static/css/main.1a9a80fa.css",
+    "static/js/main.bd81f1fc.js"
   ]
 }
