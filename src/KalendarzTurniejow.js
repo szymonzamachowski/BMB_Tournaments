@@ -1,10 +1,10 @@
-import React from "react";
-import "./KalendarzTurniejow.css";
+import React from 'react';
+import './KalendarzTurniejow.css';
 
 const mockTurnieje = {
-  "2025-05-15": { nazwa: "Turniej Wiosenny", wpisowe: 150, miejsca: "8/12" },
-  "2025-05-21": { nazwa: "Puchar Lata", wpisowe: 200, miejsca: "10/16" },
-  "2025-05-27": { nazwa: "Volley Night", wpisowe: 180, miejsca: "6/8" }
+  '2025-05-15': { nazwa: 'Turniej Wiosenny', wpisowe: 150, miejsca: '8/12' },
+  '2025-05-21': { nazwa: 'Puchar Lata', wpisowe: 200, miejsca: '10/16' },
+  '2025-05-27': { nazwa: 'Volley Night', wpisowe: 180, miejsca: '6/8' },
 };
 
 function generujDni(month, year) {
@@ -31,29 +31,29 @@ export default function KalendarzTurniejow() {
     <div className="kalendarz">
       <h2 className="kalendarz-naglowek">Kalendarz turniejów – Maj 2025</h2>
       <div className="siatka">
-        {["Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "Sb"].map((dzien) => (
-          <div key={dzien} className="naglowek">{dzien}</div>
+        {['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'Sb'].map((dzien) => (
+          <div key={dzien} className="naglowek">
+            {dzien}
+          </div>
         ))}
 
         {dni.map((dzien, idx) => {
-          const data = dzien ? `2025-05-${String(dzien).padStart(2, "0")}` : null;
+          const data = dzien ? `2025-05-${String(dzien).padStart(2, '0')}` : null;
           const turniej = data && mockTurnieje[data];
 
           return (
-            <div
-              key={idx}
-              className={`komorka ${turniej ? "aktywny" : "nieaktywny"}`}
-            >
+            <div key={idx} className={`komorka ${turniej ? 'aktywny' : 'nieaktywny'}`}>
               {dzien}
               {turniej && (
-  <div className="turniej-zawartosc">
-    <div className="nazwa">{turniej.nazwa}</div>
-    <div className="dodatkowe">
-      Wpisowe: {turniej.wpisowe} zł<br />
-      Miejsca: {turniej.miejsca}
-    </div>
-  </div>
-)}
+                <div className="turniej-zawartosc">
+                  <div className="nazwa">{turniej.nazwa}</div>
+                  <div className="dodatkowe">
+                    Wpisowe: {turniej.wpisowe} zł
+                    <br />
+                    Miejsca: {turniej.miejsca}
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}

@@ -1,38 +1,39 @@
-
 .regulamin {
   color: white;
-  animation: fadeIn 0.8s ease-in-out;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.75);
-  border-radius: 20px;
-  max-width: 900px;
+  width: 100%;
+  max-width: 800px; /* Dla estetyki */
   margin: 0 auto;
-  text-align: left;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Wyśrodkowanie poziome */
+  text-align: center; /* Tekst wycentrowany */
+  overflow-x: hidden; /* Usuwamy poziomy scroll */
 }
 
-.regulamin-naglowek {
-  text-align: center;
-  margin-bottom: 2rem;
+.regulamin h2 {
+  margin-top: 0;
   font-size: 2rem;
 }
 
-section {
+.regulamin section {
+  width: 100%;
   margin-bottom: 2rem;
 }
 
-section h3 {
+.regulamin section h3 {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
   color: #ffbb00;
 }
 
-section ul {
-  padding-left: 1.5rem;
+.regulamin ul {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0 auto;
+  text-align: left; /* Punktory zostają wyrównane do lewej */
 }
 
-section li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
+.regulamin li {
+  text-align: center; /* Treść wiersza centrowana */
 }

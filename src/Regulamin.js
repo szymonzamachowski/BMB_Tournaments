@@ -1,9 +1,8 @@
-import React from "react";
-import "./Regulamin.css";
+import React from 'react';
+import './Regulamin.css';
 
 export default function Regulamin() {
   return (
-    <div className="overlay center-box">
     <div className="regulamin">
       <h2 className="regulamin-naglowek">Regulamin turniejów BMB Volleyball</h2>
 
@@ -39,7 +38,9 @@ export default function Regulamin() {
         <h3>4. Zasady gry</h3>
         <ul>
           <li>Mecze rozgrywane zgodnie z oficjalnymi przepisami PZPS.</li>
-          <li>Szczegółowy harmonogram i zasady punktacji ogłoszone zostaną przed każdym turniejem.</li>
+          <li>
+            Szczegółowy harmonogram i zasady punktacji ogłoszone zostaną przed każdym turniejem.
+          </li>
           <li>Wszyscy uczestnicy są zobowiązani do gry fair-play.</li>
         </ul>
       </section>
@@ -59,7 +60,6 @@ export default function Regulamin() {
           <li>Pytania i uwagi można kierować na adres: kontakt@bmbvolleyball.pl</li>
         </ul>
       </section>
-    </div>
     </div>
   );
 }
