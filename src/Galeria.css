@@ -1,0 +1,55 @@
+.galeria {
+  width: 100%;
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+}
+
+.galeria-naglowek {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ffbb00;
+}
+
+.galeria-scroll {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.galeria-miniatura {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: default;
+}
+
+.galeria-miniatura:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.home-icon-button {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffbb00;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.home-icon-button:hover {
+  background: #ffaa00;
+}

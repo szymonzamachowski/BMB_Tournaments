@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './StronaStartowa.css';
 import KalendarzTurniejow from './KalendarzTurniejow';
 import Regulamin from './Regulamin';
+import Onas from './Onas';
+import Galeria from './Galeria';
 import { FaHome } from 'react-icons/fa';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
+const zdjeciaTurniejow = [
+  `${process.env.PUBLIC_URL}/zdjecia/turniej1.png`,
+  `${process.env.PUBLIC_URL}/zdjecia/turniej2.jpg`,
+  `${process.env.PUBLIC_URL}/zdjecia/turniej3.jpeg`,
+  `${process.env.PUBLIC_URL}/zdjecia/turniej4.jpg`,
+];
 
 export default function StronaStartowa() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -51,7 +60,7 @@ export default function StronaStartowa() {
   const [countdown, setCountdown] = useState('');
 
   useEffect(() => {
-    const targetDate = new Date('2025-05-15T00:00:00');
+    const targetDate = new Date('2025-05-16T00:00:00');
 
     const updateCountdown = () => {
       const now = new Date();
@@ -109,7 +118,14 @@ export default function StronaStartowa() {
             >
               Zapisz się!
             </li>
-            <li onClick={() => setMenuVisible(false)}>Galeria</li>
+            <li
+              onClick={() => {
+                setWidok('galeria');
+                setMenuVisible(false);
+              }}
+            >
+              Galeria
+            </li>
             <li
               onClick={() => {
                 setWidok('regulamin');
@@ -118,7 +134,14 @@ export default function StronaStartowa() {
             >
               Regulamin
             </li>
-            <li onClick={() => setMenuVisible(false)}>O nas</li>
+            <li
+              onClick={() => {
+                setWidok('onas');
+                setMenuVisible(false);
+              }}
+            >
+              O nas
+            </li>
           </ul>
         </nav>
       )}
@@ -148,7 +171,6 @@ export default function StronaStartowa() {
           {widok === 'regulamin' && (
             <>
               <div className="content-wrapper">
-                <h2 className="regulamin-naglowek">Regulamin turniejów BMB Volleyball</h2>
                 <Regulamin />
               </div>
               <button
@@ -160,15 +182,45 @@ export default function StronaStartowa() {
               </button>
             </>
           )}
-
+          {widok === 'onas' && (
+            <>
+              <div className="content-wrapper">
+                <Onas />
+              </div>
+              <button
+                className="home-icon-button"
+                onClick={() => setWidok('start')}
+                title="Strona główna"
+              >
+                <FaHome />
+              </button>
+            </>
+          )}
+          {widok === 'galeria' && (
+            <>
+              <div className="content-wrapper">
+                <h2 className="galeria-naglowek">Galeria</h2>
+                {zdjeciaTurniejow.map((zdjecie, index) => (
+                  <img
+                    key={index}
+                    src={zdjecie}
+                    className="galeria-miniatura"
+                    alt={`Zdjęcie ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                className="home-icon-button"
+                onClick={() => setWidok('start')}
+                title="Wróć na stronę główną"
+              >
+                <FaHome />
+              </button>
+            </>
+          )}
           {widok === 'start' && (
             <>
               <h2 className="main-title">NAJLEPSZE TURNIEJE SIATKARSKIE</h2>
-              <div className="highlight-icons">
-                <div className="highlight-item">🏆 Atrakcyjne nagrody</div>
-                <div className="highlight-item">⚖️ Sędziowie z licencją</div>
-                <div className="highlight-item">🎉 Impreza integracyjna po meczu</div>
-              </div>
               <h3 className="section-title">Jak to działa?</h3>
               <div className="how-it-works">
                 <div className="step">1. Wybierz termin 📅</div>
