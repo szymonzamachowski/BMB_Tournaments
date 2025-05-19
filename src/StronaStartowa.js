@@ -60,7 +60,7 @@ export default function StronaStartowa() {
   const [countdown, setCountdown] = useState('');
 
   useEffect(() => {
-    const targetDate = new Date('2025-05-16T00:00:00');
+    const targetDate = new Date('2025-05-21T00:00:00');
 
     const updateCountdown = () => {
       const now = new Date();
