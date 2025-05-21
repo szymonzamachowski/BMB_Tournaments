@@ -1,97 +1,157 @@
+/* === GŁÓWNY KALENDARZ === */
 .kalendarz {
-  color: white;
-  text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-.kalendarz h2 {
-  margin-bottom: 2rem;
-}
-
-.siatka {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0.5rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.naglowek {
-  font-weight: bold;
-  padding-bottom: 0.5rem;
-}
-
-.komorka {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  min-height: 80px;
-  aspect-ratio: 1 / 1;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, z-index 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.komorka.nieaktywny {
-  background: rgba(255, 255, 255, 0.05);
-  color: #999;
-}
-
-.komorka.aktywny {
-  background-color: rgba(255, 77, 77, 0.9);
-  color: white;
-  cursor: pointer;
-}
-
-.komorka.aktywny:hover {
-  background-color: rgba(255, 0, 0, 0.95);
-  min-height: 120px;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.turniej-zawartosc {
-  transition: transform 0.3s ease;
-  transform: scale(1);
-  pointer-events: none;
   width: 100%;
   height: 100%;
+  flex: 1;
+  padding: 2rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+
+/* === NAGŁÓWEK KALENDARZA === */
+.kalendarz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.month-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffbb00;
+  text-transform: uppercase;
+}
+
+.month-nav-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1.1rem;
 }
 
-.turniej-zawartosc .dzien {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+.month-nav-button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
-.turniej-zawartosc .nazwa {
-  font-size: 0.85rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+.month-nav-button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
-.turniej-zawartosc .dodatkowe {
-  display: none;
-  font-size: 0.75rem;
-  line-height: 1.2;
-}
-
-.komorka.aktywny:hover .dodatkowe {
-  display: block;
-}
-.kalendarz-naglowek {
-  margin-top: 0;
+/* === DNI TYGODNIA === */
+.week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.week-day {
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+}
+
+/* === SIATKA DNI === */
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  flex: 1;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+/* === KOMÓRKA DNIA === */
+.day-cell {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.day-cell.empty {
+  background: transparent;
+  border: none;
+}
+
+/* WEEKEND bez eventu */
+.day-cell.weekend:not(.day-event) {
+  background-color: rgba(255, 187, 0, 0.2);
+  font-weight: bold;
+}
+
+/* DZIEŃ Z EVENTEM */
+.day-cell.day-event {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffbb00;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  overflow: visible;
+}
+
+/* Powiększenie komórki */
+.day-cell.day-event:hover {
+  transform: scale(2.4);
+  z-index: 10;
+  min-height: 120px;
+  min-width: 120px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Numer dnia */
+.day-number {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Nazwa turnieju — widoczna zawsze */
+.event-name {
+  color: #ffbb00;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+/* Szczegóły turnieju — domyślnie ukryte */
+.event-hover-details {
+  display: none;
+  width: 100%;
+  padding-top: 0.5rem;
+  font-size: 0.7rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+/* Pokazuj szczegóły tylko po hover */
+.day-cell.day-event:hover .event-hover-details {
+  display: block;
 }

@@ -1,24 +1,41 @@
-.galeria {
-  width: 100%;
+.galeria-opis {
   text-align: center;
+  font-size: 1rem;
   color: white;
-  overflow-x: hidden;
+  margin-bottom: 1.5rem;
 }
 
-.galeria-naglowek {
-  font-size: 2rem;
+.galeria-foldery-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
   margin-bottom: 2rem;
-  color: #ffbb00;
+}
+
+.folder-button {
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  background: #ffbb00;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+  width: fit-content;
+}
+
+.folder-button:hover {
+  background: #ffaa00;
 }
 
 .galeria-scroll {
-  max-height: calc(100vh - 200px);
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 2rem;
-  padding: 1rem 0;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 
 .galeria-miniatura {
@@ -27,29 +44,20 @@
   border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  cursor: default;
 }
-
-.galeria-miniatura:hover {
-  transform: scale(1.02);
-  opacity: 0.95;
-}
-
-.home-icon-button {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+.folder-back-button {
+  margin-top: 2rem;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
   background: #ffbb00;
+  color: black;
   border: none;
-  border-radius: 12px;
-  padding: 1rem 2rem;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease;
 }
 
-.home-icon-button:hover {
+.folder-back-button:hover {
   background: #ffaa00;
 }

@@ -6,18 +6,18 @@ import Onas from './Onas';
 import Galeria from './Galeria';
 import { FaHome } from 'react-icons/fa';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
-const zdjeciaTurniejow = [
-  `${process.env.PUBLIC_URL}/zdjecia/turniej1.png`,
-  `${process.env.PUBLIC_URL}/zdjecia/turniej2.jpg`,
-  `${process.env.PUBLIC_URL}/zdjecia/turniej3.jpeg`,
-  `${process.env.PUBLIC_URL}/zdjecia/turniej4.jpg`,
-];
+import FormularzZgloszeniowy from './FormularzZgloszeniowy';
+import { collection, getDocs, query, where, orderBy, limit } from 'firebase/firestore';
+import { db } from './firebase';
 
 export default function StronaStartowa() {
+  useEffect(() => {
+    window.setWidok = setWidok; // <- pozwala odpalać komendy przez konsolę
+  }, []);
   const [menuVisible, setMenuVisible] = useState(false);
 
   const [widok, setWidok] = useState('start');
+  const [wybranyTurniej, setWybranyTurniej] = useState(null);
 
   const toggleMenu = () => setMenuVisible(!menuVisible);
 
@@ -58,31 +58,52 @@ export default function StronaStartowa() {
   }, []);
 
   const [countdown, setCountdown] = useState('');
+  const [najblizszyTurniej, setNajblizszyTurniej] = useState(null);
 
   useEffect(() => {
-    const targetDate = new Date('2025-05-21T00:00:00');
+    const fetchNajblizszyTurniej = async () => {
+      const dzisiaj = new Date();
+      const dzisiajStr = dzisiaj.toISOString().split('T')[0];
 
-    const updateCountdown = () => {
-      const now = new Date();
-      const diff = targetDate - now;
+      const q = query(
+        collection(db, 'tournaments'),
+        where('date', '>=', dzisiajStr),
+        orderBy('date', 'asc'),
+        limit(1)
+      );
 
-      if (diff <= 0) {
-        setCountdown('dzisiaj!');
-        return;
+      const snapshot = await getDocs(q);
+      if (!snapshot.empty) {
+        const turniej = snapshot.docs[0].data();
+        setNajblizszyTurniej(turniej);
+
+        const targetDate = new Date(`${turniej.date}T00:00:00`);
+
+        const updateCountdown = () => {
+          const now = new Date();
+          const diff = targetDate - now;
+
+          if (diff <= 0) {
+            setCountdown('dzisiaj!');
+            return;
+          }
+
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+
+          setCountdown(`${days} dni ${hours} godz. ${minutes} min. ${seconds} sek.`);
+        };
+
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+
+        return () => clearInterval(interval);
       }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      setCountdown(`${days} dni ${hours} godz. ${minutes} min. ${seconds} sek.`);
     };
 
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
+    fetchNajblizszyTurniej();
   }, []);
 
   return (
@@ -156,8 +177,15 @@ export default function StronaStartowa() {
         {/* Środkowy Box */}
         <div className="overlay center-box">
           {widok === 'kalendarz' && (
-            <div className="kalendarz">
-              <KalendarzTurniejow />
+            <>
+              <div className="content-wrapper">
+                <KalendarzTurniejow
+                  onWybierzTurniej={(turniej) => {
+                    setWybranyTurniej(turniej);
+                    setWidok('formularz');
+                  }}
+                />
+              </div>
               <button
                 className="home-icon-button"
                 onClick={() => setWidok('start')}
@@ -165,7 +193,7 @@ export default function StronaStartowa() {
               >
                 <FaHome />
               </button>
-            </div>
+            </>
           )}
 
           {widok === 'regulamin' && (
@@ -199,15 +227,7 @@ export default function StronaStartowa() {
           {widok === 'galeria' && (
             <>
               <div className="content-wrapper">
-                <h2 className="galeria-naglowek">Galeria</h2>
-                {zdjeciaTurniejow.map((zdjecie, index) => (
-                  <img
-                    key={index}
-                    src={zdjecie}
-                    className="galeria-miniatura"
-                    alt={`Zdjęcie ${index + 1}`}
-                  />
-                ))}
+                <Galeria />
               </div>
               <button
                 className="home-icon-button"
@@ -232,7 +252,13 @@ export default function StronaStartowa() {
               <button className="signup-button" onClick={() => setWidok('kalendarz')}>
                 Zapisz się!
               </button>
-              <p className="countdown">Najbliższy turniej za: {countdown}</p>
+              {najblizszyTurniej && (
+                <p className="countdown">
+                  Najbliższy turniej: <strong>{najblizszyTurniej.name}</strong>
+                  <br />
+                  już za: {countdown}
+                </p>
+              )}
 
               <div className="social-icons">
                 <a
@@ -252,6 +278,20 @@ export default function StronaStartowa() {
                   <i className="fab fa-instagram"></i>
                 </a>
               </div>
+            </>
+          )}
+          {widok === 'formularz' && (
+            <>
+              <div className="content-wrapper">
+                <FormularzZgloszeniowy turniej={wybranyTurniej} />
+              </div>
+              <button
+                className="home-icon-button"
+                onClick={() => setWidok('start')}
+                title="Wróć na stronę główną"
+              >
+                <FaHome />
+              </button>
             </>
           )}
         </div>
