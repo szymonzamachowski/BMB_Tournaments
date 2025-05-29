@@ -7,13 +7,13 @@
 ## 📝 Opis projektu
 
 Celem projektu jest zaprojektowanie i wdrożenie responsywnej i dostępnej aplikacji internetowej, która:
-- Umożliwia wybór terminu turnieju w interaktywnym kalendarzu 📅  
-- Pozwala na szybkie opłacenie wpisowego i wysłanie zgłoszenia online 💳  
-- Prezentuje szczegółowe zasady i regulamin wydarzeń 📜  
-- Pokazuje galerię zdjęć z poprzednich edycji turniejów 📷  
-- Zapewnia sekcję “O nas” z misją i informacjami o organizatorach 🏐  
+- Umożliwia wybór terminu turnieju w interaktywnym kalendarzu   
+- Pozwala na szybkie opłacenie wpisowego i wysłanie zgłoszenia online   
+- Prezentuje szczegółowe zasady i regulamin wydarzeń   
+- Pokazuje galerię zdjęć z poprzednich edycji turniejów   
+- Zapewnia sekcję “O nas” z misją i informacjami o organizatorach 
 
-Projekt powstał z myślą o amatorskiej drużynie **BMB Volleyball**, której misją jest promocja aktywności fizycznej, ducha fair-play i integracja lokalnej społeczności :contentReference[oaicite:0]{index=0}.
+Projekt powstał z myślą o amatorskiej drużynie **BMB Volleyball**, której misją jest promocja aktywności fizycznej, ducha fair-play i integracja lokalnej społeczności
 
 ---
 
@@ -41,7 +41,7 @@ Projekt powstał z myślą o amatorskiej drużynie **BMB Volleyball**, której m
 
 - **Frontend:** React, React Hooks, React Icons  
 - **Styling:** czysty CSS (moduły CSS w poszczególnych komponentach)  
-- **Backend-as-a-Service:** Firebase (Firestore) do przechowywania danych turniejów :contentReference[oaicite:1]{index=1}  
+- **Backend-as-a-Service:** Firebase (Firestore) do przechowywania danych turniejów 
 - **Responsywność & dostępność:**  
   - Minimum dwa tryby wyświetlania (mobile / desktop)  
   - Zgodność z wytycznymi WCAG  
