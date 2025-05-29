@@ -132,7 +132,7 @@ html {
 .signup-button {
   font-size: 2rem;
   padding: 1.5rem 4rem;
-  background: linear-gradient(135deg, #ffbb00, #ffaa00); /* Gradient dla efektu premium */
+  background: linear-gradient(135deg, #ffbb00, #ffaa00);
   color: black;
   border: none;
   border-radius: 15px;
@@ -328,8 +328,47 @@ html {
   background: rgba(255, 170, 0, 1);
 }
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 187, 0, 0.7) rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  .signup-button {
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+  }
+  .overlay.center-box {
+    padding: 1rem;
+    width: 95%;
+    border-radius: 12px;
+  }
+  .regulamin,
+  .onas {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  .nav-items {
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .navbar {
+    padding: 0.5rem 1rem;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .home-icon-button {
+    width: 90%;
+    font-size: 1rem;
+  }
+  .how-it-works {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

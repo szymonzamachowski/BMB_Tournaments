@@ -61,3 +61,15 @@
 .folder-back-button:hover {
   background: #ffaa00;
 }
+
+@media (max-width: 768px) {
+  .galeria-scroll {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  .galeria-miniatura {
+    width: 95%;
+    max-width: none;
+  }
+}
+

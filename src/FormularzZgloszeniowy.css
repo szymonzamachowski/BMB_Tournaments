@@ -101,7 +101,6 @@
   font-size: 0.95rem;
 }
 
-/* Spinner */
 .spinner {
   width: 22px;
   height: 22px;
@@ -116,5 +115,22 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .formularz {
+    padding: 1rem;
+    max-width: 95vw;
+  }
+  .formularz input[type='text'],
+  .formularz input[type='email'],
+  .formularz input[type='number'] {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+  .next {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.5rem;
   }
 }

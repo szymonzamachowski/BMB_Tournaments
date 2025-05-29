@@ -1,4 +1,4 @@
-/* === GŁÓWNY KALENDARZ === */
+
 .kalendarz {
   width: 100%;
   height: 100%;
@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-/* === NAGŁÓWEK KALENDARZA === */
+
 .kalendarz-header {
   display: flex;
   align-items: center;
@@ -49,7 +49,6 @@
   cursor: default;
 }
 
-/* === DNI TYGODNIA === */
 .week-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -63,7 +62,7 @@
   font-size: 1rem;
 }
 
-/* === SIATKA DNI === */
+
 .days-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -74,7 +73,7 @@
   z-index: 1;
 }
 
-/* === KOMÓRKA DNIA === */
+
 .day-cell {
   position: relative;
   height: 80px;
@@ -97,13 +96,13 @@
   border: none;
 }
 
-/* WEEKEND bez eventu */
+
 .day-cell.weekend:not(.day-event) {
   background-color: rgba(255, 187, 0, 0.2);
   font-weight: bold;
 }
 
-/* DZIEŃ Z EVENTEM */
+
 .day-cell.day-event {
   background-color: rgba(0, 0, 0, 0.6);
   border: 2px solid #ffbb00;
@@ -114,7 +113,7 @@
   overflow: visible;
 }
 
-/* Powiększenie komórki */
+
 .day-cell.day-event:hover {
   transform: scale(2.4);
   z-index: 10;
@@ -123,14 +122,14 @@
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-/* Numer dnia */
+
 .day-number {
   font-weight: bold;
   font-size: 1rem;
   color: #ffffff;
 }
 
-/* Nazwa turnieju — widoczna zawsze */
+
 .event-name {
   color: #ffbb00;
   font-size: 0.7rem;
@@ -139,7 +138,7 @@
   text-align: center;
 }
 
-/* Szczegóły turnieju — domyślnie ukryte */
+
 .event-hover-details {
   display: none;
   width: 100%;
@@ -151,7 +150,29 @@
   word-break: break-word;
 }
 
-/* Pokazuj szczegóły tylko po hover */
+
 .day-cell.day-event:hover .event-hover-details {
   display: block;
+}
+
+@media (max-width: 768px) {
+  .kalendarz {
+    padding: 1rem;
+  }
+  .week-day {
+    font-size: 0.8rem;
+  }
+  .days-grid {
+    grid-template-columns: repeat(7, minmax(30px, 1fr));
+    gap: 4px;
+  }
+  .day-cell {
+    height: 60px;
+    font-size: 0.65rem;
+  }
+  .day-cell.day-event:hover {
+    transform: scale(1.8);
+    min-height: 100px;
+    min-width: 100px;
+  }
 }

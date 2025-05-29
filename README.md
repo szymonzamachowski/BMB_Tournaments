@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# BMB Volleyball – Rejestracja na Turnieje Siatkarskie
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Jednostronicowa aplikacja WWW (SPA) stworzona w React, umożliwiająca łatwe i intuicyjne zgłaszanie drużyn na lokalne turnieje siatkarskie.**
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📝 Opis projektu
 
-### `npm start`
+Celem projektu jest zaprojektowanie i wdrożenie responsywnej i dostępnej aplikacji internetowej, która:
+- Umożliwia wybór terminu turnieju w interaktywnym kalendarzu 📅  
+- Pozwala na szybkie opłacenie wpisowego i wysłanie zgłoszenia online 💳  
+- Prezentuje szczegółowe zasady i regulamin wydarzeń 📜  
+- Pokazuje galerię zdjęć z poprzednich edycji turniejów 📷  
+- Zapewnia sekcję “O nas” z misją i informacjami o organizatorach 🏐  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Projekt powstał z myślą o amatorskiej drużynie **BMB Volleyball**, której misją jest promocja aktywności fizycznej, ducha fair-play i integracja lokalnej społeczności :contentReference[oaicite:0]{index=0}.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚙️ Funkcjonalności
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Widok główny**  
+  - Rozmyte tło wideo z kolorową nakładką  
+  - Animowany licznik odliczający do najbliższego turnieju  
+  - Przycisk “Zapisz się!” kierujący do kalendarza  
+- **Kalendarz turniejów**  
+  - Miesięczny widok z oznaczeniem dat, na które można się zapisać  
+  - Podgląd szczegółów turnieju po najechaniu lub kliknięciu  
+- **Formularz zgłoszeniowy**  
+  - Dynamiczne wypełnianie danych drużyny (w przyszłej wersji z walidacją pól)  
+- **Regulamin**  
+  - Przejrzysty podział na sekcje: zasady ogólne, zasady zapisów, uczestnicy, bezpieczeństwo itd.  
+- **Galeria**  
+  - Scrollowana lista miniatur zdjęć z dotychczasowych turniejów  
+- **O nas**  
+  - Informacje o drużynie, misji, korzyściach z uczestnictwa i dane kontaktowe  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Technologie
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend:** React, React Hooks, React Icons  
+- **Styling:** czysty CSS (moduły CSS w poszczególnych komponentach)  
+- **Backend-as-a-Service:** Firebase (Firestore) do przechowywania danych turniejów :contentReference[oaicite:1]{index=1}  
+- **Responsywność & dostępność:**  
+  - Minimum dwa tryby wyświetlania (mobile / desktop)  
+  - Zgodność z wytycznymi WCAG  
+- **Asynchroniczna komunikacja** z bazą danych przez REST API  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

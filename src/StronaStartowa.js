@@ -12,7 +12,7 @@ import { db } from './firebase';
 
 export default function StronaStartowa() {
   useEffect(() => {
-    window.setWidok = setWidok; // <- pozwala odpalać komendy przez konsolę
+    window.setWidok = setWidok; 
   }, []);
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -108,7 +108,7 @@ export default function StronaStartowa() {
 
   return (
     <div className="container">
-      {/* Nagłówek */}
+     
       <header className="header">
         <div className="menu-button-container">
           <button className="menu-button" onClick={toggleMenu}>
@@ -119,7 +119,7 @@ export default function StronaStartowa() {
         <div className="spacer"></div>
       </header>
 
-      {/* Navbar */}
+     
       {menuVisible && (
         <nav className="navbar">
           <ul className="nav-items">
@@ -167,14 +167,14 @@ export default function StronaStartowa() {
         </nav>
       )}
 
-      {/* Tło: Wideo */}
+      
       <div className="video-background full-screen">
         <video autoPlay muted loop className="video" poster="/background.jpg">
           <source src={`${process.env.PUBLIC_URL}/background.mp4`} type="video/mp4" />
         </video>
         <div className="video-overlay-color"></div>
 
-        {/* Środkowy Box */}
+        
         <div className="overlay center-box">
           {widok === 'kalendarz' && (
             <>
